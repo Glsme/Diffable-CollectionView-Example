@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var shoppingCollectionView: UICollectionView!
     @IBOutlet weak var shoppingSearchbar: UISearchBar!
     
-    var list: [String] = []
+    var list: [shoppingListModel] = []
     
-    private var dataSource: UICollectionViewDiffableDataSource<Int, String>!
+    private var dataSource: UICollectionViewDiffableDataSource<Int, shoppingListModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ extension ViewController: UISearchBarDelegate {
         var snapshot = dataSource.snapshot()
         
         guard let text = searchBar.text else { return }
-        snapshot.appendItems([text])
+        snapshot.appendItems([shoppingListModel(title: text)])
         dataSource.apply(snapshot, animatingDifferences: true)
         searchBar.text = nil
     }
@@ -51,10 +51,10 @@ extension ViewController {
     }
     
     private func configureDataSource() {
-        let cellRegisteration = UICollectionView.CellRegistration<UICollectionViewListCell, String> { cell, indexPath, itemIdentifier in
+        let cellRegisteration = UICollectionView.CellRegistration<UICollectionViewListCell, shoppingListModel> { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
-            content.text = itemIdentifier
-            content.secondaryText = "\(itemIdentifier.count)"
+            content.text = itemIdentifier.title
+            content.secondaryText = "\(itemIdentifier.title.count)"
             cell.contentConfiguration = content
             
             var background = UIBackgroundConfiguration.listPlainCell()
@@ -68,7 +68,7 @@ extension ViewController {
             return cell
         })
         
-        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
+        var snapshot = NSDiffableDataSourceSnapshot<Int, shoppingListModel>()
         snapshot.appendSections([0])
         snapshot.appendItems(list)
         dataSource.apply(snapshot)

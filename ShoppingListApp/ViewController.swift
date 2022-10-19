@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var shoppingCollectionView: UICollectionView!
     @IBOutlet weak var shoppingSearchbar: UISearchBar!
     
-    var list: [ShoppingListModel] = []
+    var list: [ShoppingListModel] = [ShoppingListModel(title: "에어팟")]
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, ShoppingListModel>!
     
@@ -36,7 +36,7 @@ extension ViewController: UISearchBarDelegate {
         var snapshot = dataSource.snapshot()
         
         guard let text = searchBar.text else { return }
-        snapshot.appendItems([ShoppingListModel(title: text)])
+        snapshot.appendItems([ShoppingListModel(title: text)], toSection: 1)
         dataSource.apply(snapshot, animatingDifferences: true)
         searchBar.text = nil
     }
@@ -69,8 +69,8 @@ extension ViewController {
         })
         
         var snapshot = NSDiffableDataSourceSnapshot<Int, ShoppingListModel>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(list)
+        snapshot.appendSections([0, 1])
+        snapshot.appendItems(list, toSection: 0)
         dataSource.apply(snapshot)
     }
 }

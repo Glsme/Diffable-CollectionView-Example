@@ -32,7 +32,14 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 extension ViewController: UISearchBarDelegate {
-
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        var snapshot = dataSource.snapshot()
+        
+        guard let text = searchBar.text else { return }
+        snapshot.appendItems([text])
+        dataSource.apply(snapshot, animatingDifferences: true)
+        searchBar.text = nil
+    }
 }
 
 

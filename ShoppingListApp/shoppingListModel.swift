@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct shoppingListModel: Hashable {
+struct ShoppingListModel: Hashable {
     let id = UUID().uuidString
     let title: String
 }

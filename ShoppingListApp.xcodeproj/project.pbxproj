@@ -13,7 +13,7 @@
 		85CE9E7629005879007341FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CE9E7429005879007341FE /* Main.storyboard */; };
 		85CE9E782900587A007341FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85CE9E772900587A007341FE /* Assets.xcassets */; };
 		85CE9E7B2900587A007341FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CE9E792900587A007341FE /* LaunchScreen.storyboard */; };
-		85CE9E8329005E4B007341FE /* shoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CE9E8229005E4B007341FE /* shoppingListModel.swift */; };
+		85CE9E8329005E4B007341FE /* ShoppingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CE9E8229005E4B007341FE /* ShoppingListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		85CE9E772900587A007341FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85CE9E7A2900587A007341FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85CE9E7C2900587A007341FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85CE9E8229005E4B007341FE /* shoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingListModel.swift; sourceTree = "<group>"; };
+		85CE9E8229005E4B007341FE /* ShoppingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				85CE9E772900587A007341FE /* Assets.xcassets */,
 				85CE9E792900587A007341FE /* LaunchScreen.storyboard */,
 				85CE9E7C2900587A007341FE /* Info.plist */,
-				85CE9E8229005E4B007341FE /* shoppingListModel.swift */,
+				85CE9E8229005E4B007341FE /* ShoppingListModel.swift */,
 			);
 			path = ShoppingListApp;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 				85CE9E7329005879007341FE /* ViewController.swift in Sources */,
 				85CE9E6F29005879007341FE /* AppDelegate.swift in Sources */,
 				85CE9E7129005879007341FE /* SceneDelegate.swift in Sources */,
-				85CE9E8329005E4B007341FE /* shoppingListModel.swift in Sources */,
+				85CE9E8329005E4B007341FE /* ShoppingListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,9 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,22 +17,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pld-BR-Axx">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="L4Y-i4-7a3"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NS8-8B-duG"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GuO-cl-dsV">
+                                <rect key="frame" x="6" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X7w-Vg-9fL">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cTU-am-fwF">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ppL-Uo-BNV">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pld-BR-Axx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4E2-kD-pe6"/>
+                            <constraint firstItem="pld-BR-Axx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="91d-Gy-tJ5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GuO-cl-dsV" secondAttribute="bottom" id="ECO-M2-XY2"/>
+                            <constraint firstItem="pld-BR-Axx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VJe-35-JK3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GuO-cl-dsV" secondAttribute="trailing" id="hpO-a6-3W9"/>
+                            <constraint firstItem="GuO-cl-dsV" firstAttribute="top" secondItem="pld-BR-Axx" secondAttribute="bottom" id="qF8-ch-2ct"/>
+                            <constraint firstItem="GuO-cl-dsV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zem-Yl-kMq"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="eiv-ns-IYb" id="JV5-aU-frr"/>
+                        <outlet property="shoppingCollectionView" destination="GuO-cl-dsV" id="Hlc-v9-46C"/>
+                        <outlet property="shoppingSearchbar" destination="pld-BR-Axx" id="lQd-ku-krc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="eiv-ns-IYb">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="uHY-HQ-va6"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="88W-ks-tQZ"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="oYf-AG-r6L"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="7fq-1J-q3L"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="132" y="-28"/>
         </scene>

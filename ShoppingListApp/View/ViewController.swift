@@ -58,7 +58,6 @@ extension ViewController {
             cell.contentConfiguration = content
             
             var background = UIBackgroundConfiguration.listPlainCell()
-            background.backgroundColor = .lightGray
             cell.backgroundConfiguration = background
         }
         
@@ -69,7 +68,7 @@ extension ViewController {
         })
         
         var snapshot = NSDiffableDataSourceSnapshot<Int, ShoppingListModel>()
-        snapshot.appendSections([0, 1])
+        snapshot.appendSections([0])
         snapshot.appendItems(list, toSection: 0)
         dataSource.apply(snapshot)
     }

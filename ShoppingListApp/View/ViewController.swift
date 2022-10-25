@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -13,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var shoppingSearchbar: UISearchBar!
     
     var list: [ShoppingListModel] = [ShoppingListModel(title: "에어팟")]
+    
+    let viewModel = ViewModel()
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, ShoppingListModel>!
     
@@ -24,6 +28,10 @@ class ViewController: UIViewController {
         shoppingSearchbar.delegate = self
         
         configureDataSource()
+    }
+    
+    func bind() {
+        
     }
 }
 
@@ -57,7 +65,7 @@ extension ViewController {
             content.secondaryText = "\(itemIdentifier.title.count)"
             cell.contentConfiguration = content
             
-            var background = UIBackgroundConfiguration.listPlainCell()
+            let background = UIBackgroundConfiguration.listPlainCell()
             cell.backgroundConfiguration = background
         }
         
